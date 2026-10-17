@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* bitácora: papel de carta náutica, tinta verde petróleo; cada proyecto tiene su tono. */
+:root {
+  --bg: #eef1ec;
+  --panel: #fafbf8;
+  --ink: #18221f;
+  --muted: #5b6964;
+  --line: #d3dad3;
+  --track: #e2e7e1;
+  --accent: #0e6b5c;
+  --on-accent: #ffffff;
+  --accent-soft: #d8ebe5;
+  --added: #1d7a45;
+  --deleted: #b23a2e;
+  --p0: #2f62c9;
+  --p1: #c4501f;
+  --p2: #7444c4;
+  --p3: #13866a;
+  --p4: #b8326f;
+  --p5: #9a7400;
+  --p6: #16809f;
+  --p7: #5d6b22;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111715;
+    --panel: #18201d;
+    --ink: #e2eae6;
+    --muted: #93a39d;
+    --line: #2a3531;
+    --track: #212b28;
+    --accent: #52c2a5;
+    --on-accent: #08201a;
+    --accent-soft: #173a31;
+    --added: #6cd39a;
+    --deleted: #ff8a7d;
+    --p0: #7ea6ff;
+    --p1: #ff9a6b;
+    --p2: #b896ff;
+    --p3: #4fd3ad;
+    --p4: #ff86bd;
+    --p5: #e8c45a;
+    --p6: #5cc8e8;
+    --p7: #b4c76a;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-track: var(--track);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-added: var(--added);
+  --color-deleted: var(--deleted);
+  --font-sans: "Schibsted Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Martian Mono Variable", ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible:not(textarea) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.highlight {
+  animation: highlight 1.6s ease-out;
+}
+
+@keyframes highlight {
+  from {
+    background: var(--accent-soft);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlight {
+    animation: none;
+    background: var(--accent-soft);
+  }
+}
